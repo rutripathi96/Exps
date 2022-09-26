@@ -1,0 +1,74 @@
+//Write a program in Java to create a Player class. Inherit the classes Cricket Player, Football _Player and Hockey Player from Player class. 
+import java.util.Scanner;
+class Player{
+	int jerseyNum;
+	int numWickets;
+	int numRuns;
+	int numFootballGoals;
+	int numHockeyGoals;
+	public void play() {
+		System.out.println("Playing");
+	}
+}
+class CricketPlayer extends Player{
+	public CricketPlayer(int jerseyNum,int numWickets, int numRuns) {
+		this.jerseyNum = jerseyNum;
+		this.numWickets = numWickets;
+		this.numRuns = numRuns;
+	}
+	public void play() {
+		System.out.println("Playing Cricket");
+		System.out.println(jerseyNum);
+		System.out.println(numWickets);
+		System.out.println(numRuns);
+		
+	}
+}
+class FootballPlayer extends Player{
+	public FootballPlayer(int jerseyNum,int numFootballGoals) {
+		this.jerseyNum = jerseyNum;
+		this.numFootballGoals = numFootballGoals;
+	}
+	public void play() {
+		System.out.println("Playing Football");
+		System.out.println(jerseyNum);
+		System.out.println(numFootballGoals);
+	}
+}
+class HockeyPlayer extends Player{
+	public HockeyPlayer(int jerseyNum,int numHockeyGoals) {
+		this.jerseyNum = jerseyNum;
+		this.numHockeyGoals = numHockeyGoals;
+	}
+	public void play() {
+		System.out.println("Playing Hockey");
+		System.out.println(jerseyNum);
+		System.out.println(numHockeyGoals);
+	}
+}
+public class Exp4_2{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter the jersey number of the Cricket Player");
+		int num1 = input.nextInt();
+		System.out.println("Enter the number of wickets");
+		int wic = input.nextInt();
+		System.out.println("Enter the number of runs");
+		int run = input.nextInt();
+		Player obj;
+		obj = new CricketPlayer(num1,wic,run);
+		obj.play();
+		System.out.println("Enter the jersey number of the Football Player");
+		int num2 = input.nextInt();
+		System.out.println("Enter the number of football goals");
+		int fgoals = input.nextInt();
+		obj = new FootballPlayer(num2,fgoals);
+		obj.play();
+		System.out.println("Enter the jersey number of the Hockey Player");
+		int num3 = input.nextInt();
+		System.out.println("Enter the number of Hockey goals");
+		int hgoals = input.nextInt();
+		obj = new HockeyPlayer(num3,hgoals);
+		obj.play();
+	}
+}
