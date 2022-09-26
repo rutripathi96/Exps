@@ -1,0 +1,68 @@
+//Write a class Worker and derive classes DailyWorker and SalariedWorker from it. 
+//Every worker has a name and a salary rate. Write method ComPay (int hours) to
+//compute the week pay of every worker. A Daily Worker is paid on the basis 
+//of the number of days he/she works. The Salaried Worker gets paid the wage for
+//40 hours a week no matter what the actual hours are. Test this program to calculate
+//the pay of workers. You are expected to use the concept of polymorphism to write this program.
+import java.util.Scanner;
+class Worker{
+	String name;
+	double salaryRate;
+	public void compay(double days) {
+		
+	}
+}
+class DailyWorker extends Worker{
+	public DailyWorker(String name,double salaryRate) {
+		this.name = name;
+		this.salaryRate = salaryRate;
+		System.out.println("Name of the dailyworker is :- "+name);
+		System.out.println("Salary rate of the daily worker is on basis of per day :- "+salaryRate);
+	}
+	public void compay(double days) {
+		double income = salaryRate*days;
+		System.out.println(income);
+	}
+}
+class SalariedWorker extends Worker{
+	public SalariedWorker(String name,double salaryRate) {
+		this.name = name;
+		this.salaryRate = salaryRate;
+		System.out.println("Name of the salaried worker is :- "+name);
+		System.out.println("Salary rate of the salaried worker is on weekly basis :- "+salaryRate);
+	}
+	public void compay(double days) {
+		if(days<7) {
+			System.out.println("No income");
+		}
+		else if(days==7) {
+			double income = salaryRate;
+			System.out.println("Income :- "+salaryRate);
+		}
+		else if(days>7) {
+			double a = (days/7.0);
+			double income = salaryRate*a;
+			System.out.println("Income :- "+income);
+		}
+	}
+}
+public class Exp4_3{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		Worker obj;
+		System.out.println("Enter the name  and the salary rate of the Dailyworker");
+		String n = input.nextLine();
+		double r = input.nextDouble();
+		obj = new DailyWorker(n,r);
+		System.out.println("Enter the number of days that the daily worker worled");
+		int d = input.nextInt();
+		obj.compay(d);
+		System.out.println("Enter the name  and the salary rate of the salariedworker");
+		String h = input.next();
+		double ra = input.nextDouble();
+		obj = new SalariedWorker(h,ra);
+		System.out.println("Enter the number of days that the salaried worker worled");
+		int da = input.nextInt();
+		obj.compay(da);
+	}
+}
