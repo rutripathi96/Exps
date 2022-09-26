@@ -1,0 +1,100 @@
+//Consider the trunk calls of a telephone exchange. 
+//A trunk call can be ordinary, urgent or lightning. 
+//The charges depend on the duration and the type of the call. 
+//Write a program using the concept of polymorphism in Java to calculate the charges.
+import java.util.Scanner;
+class Trunk{
+	int durationMins;
+	int rateCallPerMinute;
+	public void pay() {
+		
+	}
+}
+class OdrinaryTrunk extends Trunk{
+	public OdrinaryTrunk(int durationMins,int rateCallPerMinute) {
+		this.durationMins = durationMins;
+		this.rateCallPerMinute = rateCallPerMinute;
+		System.out.println("Number of minutes :- "+durationMins);
+		System.out.println("Rate for ordinary call :- "+rateCallPerMinute);
+		
+	}
+	
+    
+    public void pay() {
+    	int charge = rateCallPerMinute *durationMins;
+    	System.out.println("You have to pay :- "+charge);
+    }
+    
+}
+class UrgentTrunk extends Trunk{
+	public UrgentTrunk(int durationMins,int rateCallPerMinute) {
+		this.durationMins = durationMins;
+		this.rateCallPerMinute = rateCallPerMinute;
+		System.out.println("Number of minutes :- "+durationMins);
+		System.out.println("Rate for Urgent call :- "+rateCallPerMinute);
+		
+	}
+	
+    
+    public void pay() {
+    	int charge = rateCallPerMinute *durationMins;
+    	System.out.println("You have to pay :- "+charge);
+    }
+    
+}
+class LightningTrunk extends Trunk{
+	public LightningTrunk(int durationMins,int rateCallPerMinute) {
+		this.durationMins = durationMins;
+		this.rateCallPerMinute = rateCallPerMinute;
+		System.out.println("Number of minutes :- "+durationMins);
+		System.out.println("Rate for Lightning call :- "+rateCallPerMinute);
+	}
+	
+    
+    public void pay() {
+    	int charge = rateCallPerMinute *durationMins;
+    	System.out.println("You have to pay :- "+charge);
+    }
+    
+}
+public class Exp4_3{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		Trunk obj;
+		while(true) {
+			System.out.println("For an ordinary trunk call press 1");
+			System.out.println("For an Urgent trunk call press 2");
+			System.out.println("For an Lightning trunk call press 3");
+			int a = input.nextInt();
+			switch(a) {
+			case 1:
+				System.out.println("For how many minuted you want to talk");
+				int b = input.nextInt();
+				obj = new OdrinaryTrunk(b,100);
+				obj.pay();
+				break;
+			case 2:
+				System.out.println("For how many minutes you want to talk");
+				int c = input.nextInt();
+				obj = new UrgentTrunk(c,200);
+				obj.pay();
+				break;	
+			case 3:
+				System.out.println("For how many minuted you want to talk");
+				int d = input.nextInt();
+				obj = new LightningTrunk(d,300);
+				obj.pay();
+				break;
+		    default:
+		    	System.out.println("OOPS!!! Wrong input");
+		    	break;
+			}
+			System.out.println("To exit press -1 otherwise press any digit");
+			int m = input.nextInt();
+			if(m==-1) {
+				break;
+			}
+		}
+		
+	}
+}
