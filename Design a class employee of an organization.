@@ -1,0 +1,62 @@
+//Design a class employee of an organization. 
+//An employee has a name, empid, and salary. 
+//Write the default constructor, a constructor 
+//with parameters (name, empid, and salary) and methods to return name and salary. 
+//Also write a method increaseSalary that raises the employee’s 
+//salary by a certain user specified percentage. Derive a subclass
+//Manager from employee. Add an instance variable named department to 
+//the manager class. Supply a test program that uses theses classes and methods.   
+import java.util.Scanner;
+class Employee{
+	String name;
+	String mail;
+	double salary;
+	public Employee() {
+		System.out.println("Hello employee");
+	}
+	public Employee(String name,String mail,double salary) {
+		this.name = name;
+		this.mail = mail;
+		this.salary = salary;
+	}
+	public String fun1() {
+		return name;
+	}
+	public double fun2() {
+		return salary;
+	}
+	public void increaseSalary(double percent) {
+		double a = (percent/100)*salary;
+		salary = salary + a;
+		System.out.println("New salary :- "+salary);
+	}
+}
+class Manager extends Employee{
+	String department;
+	public Manager(String department) {
+		this.department = department;
+		System.out.println("Manager's department :- "+department);
+	}
+}
+public class Exp4_5{
+	public static void main(String[] args) {
+		Employee obj = new Employee();
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter the name, mail and salary of the employee");
+		String name = input.next();
+		String mail = input.next();
+		double salary = input.nextDouble();
+		Employee obj1 = new Employee(name,mail,salary);
+		System.out.println("Employee details :- ");
+		System.out.println("Name :- "+obj1.fun1());
+		System.out.println("Salary :- "+ obj1.fun2());
+		System.out.println("By what percent you want to increase the employee salary");
+		double a = input.nextDouble();
+		obj1.increaseSalary(a);
+		System.out.println("Enter the department of the manager :- ");
+		String n = input.next();
+		Manager obj2 = new Manager(n);
+		
+		
+	}
+}
