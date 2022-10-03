@@ -1,0 +1,26 @@
+//Write a program to create interface named test. In this interface 
+//the member function is square. Implement this interface in arithmetic class. 
+//Create one new class called ToTestInt. In this class use the object of arithmetic class
+import java.util.Scanner;
+interface test{
+	double square();
+}
+class Arithmetic implements test{
+	double a;
+	public Arithmetic(double a) {
+		this.a = a;
+		System.out.println("Number to be sqared :- "+this.a);
+	}
+	public double square() {
+		return a*a;
+	}
+}
+public class ToTestInt{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter the number :- ");
+		double i = input.nextDouble();
+		Arithmetic obj = new Arithmetic(i);
+		System.out.println("Result :- "+obj.square());
+	}
+}
