@@ -1,0 +1,29 @@
+//Write a program in Java to show the usefulness of Interfaces as a place to 
+//keep constant value of the program
+import java.util.Scanner;
+interface A{
+	double pi = 3.14;
+	void areaOfCircle();
+}
+class area implements A{
+	double radius;
+	public area(double radius) {
+		this.radius = radius;
+		System.out.println("The radius that you entered :- "+this.radius);
+	}
+	public void areaOfCircle() {
+		//pi = 12.34;  if this step is done then we will get an error because pi is a constant
+		double ans = (pi)*((radius)*(radius));
+		System.out.println("The area of the circle is :- "+ans);
+	}
+}
+public class Abc{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter the radius of the circle :- ");
+		double r = input.nextDouble();
+		area obj = new area(r);
+		obj.areaOfCircle();
+		
+	}
+}
