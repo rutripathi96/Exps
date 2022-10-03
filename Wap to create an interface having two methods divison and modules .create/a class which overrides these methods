@@ -1,0 +1,35 @@
+//Wap to create an interface having two methods divison and modules .create 
+//a class which overrides these methods
+import java.util.Scanner;
+interface A{
+	void division();
+	void modules();
+}
+class B implements A{
+	double x;
+	double y;
+	public B(double x,double y){
+		this.x = x;
+		this.y = y;
+		System.out.println("The 2 numbers are :- "+x+" "+y);
+	}
+	public void division() {
+		double ans = (x/y);
+		System.out.println("The answer is :- "+ans);
+	}
+	public void modules(){
+		System.out.println("Module method is implemented");
+	}
+}
+public class Abc{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter the two numbers :- ");
+		double a = input.nextDouble();
+		double b = input.nextDouble();
+		B obj = new B(a,b);
+		obj.division();
+		obj.modules();
+		
+	}
+}
